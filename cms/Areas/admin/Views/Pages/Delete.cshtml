@@ -1,0 +1,87 @@
+﻿@model DataLayer.Page
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>آیا از حذف این خبر مطمعن هستید؟"</h3>
+<div>
+    <h4>اخبار</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pageGroup.GroupTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pageGroup.GroupTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+
+    
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+
+        <dd>
+            <input type="file" name="imgUp" />
+            @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+            @if (Model.ImageName != null)
+            {
+                <img src="~/pageImages/@Model.ImageName" class="thumbnail" style="max-width:90px" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowInSlider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShowInSlider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CerateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CerateDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("بازگشت", "Index")
+        </div>
+    }
+</div>
