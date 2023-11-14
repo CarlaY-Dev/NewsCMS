@@ -63,6 +63,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                 
                 <input type="file" name="imgUp" />
                 @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
                 @if (Model.ImageName != null)
